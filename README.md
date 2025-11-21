@@ -1,36 +1,119 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Todo List Application
+
+Professional Next.js Todo app with CRUD, pagination, and responsive design.
+
+## Features
+
+- Create, Read, Update, Delete todos
+- Responsive design
+- Filter by status (Pending, In-Progress, Completed)
+- Pagination support
+- Modern UI with Tailwind CSS
+- Real-time updates
+- Form validation
+- Toast notifications
+
+## Tech Stack
+
+- **Frontend**: Next.js 15, React, JavaScript
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
+- **Notifications**: React Hot Toast
+- **Date Formatting**: date-fns
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+    npm install
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Run the development server:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+    npm run dev
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open your browser and navigate to:
 
-## Learn More
+    http://localhost:3000
 
-To learn more about Next.js, take a look at the following resources:
+## API Endpoints
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Todos Collection
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- GET /api/todos - List all todos (supports pagination & filtering)
+- POST /api/todos - Create a new todo
 
-## Deploy on Vercel
+### Individual Todo
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- GET /api/todos/[id] - Get a specific todo
+- PUT /api/todos/[id] - Update a todo
+- DELETE /api/todos/[id] - Delete a todo
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Project Structure
+
+    todo-app-mern/
+    ├── app/
+    │   ├── api/todos/
+    │   │   ├── route.js
+    │   │   └── [id]/route.js
+    │   ├── globals.css
+    │   ├── layout.js
+    │   └── page.js
+    ├── components/
+    │   ├── TodoCard.jsx
+    │   ├── TodoForm.jsx
+    │   ├── Pagination.jsx
+    │   └── LoadingSkeleton.jsx
+    ├── lib/
+    │   └── db.js
+    └── package.json
+
+## Features in Detail
+
+### Create Todo
+- Add todos with title (required) and description (optional)
+- Automatic status set to "Pending"
+- Form validation
+
+### Edit Todo
+- Update title, description, and status
+- Status options: Pending, In-Progress, Completed
+- Real-time updates
+
+### Delete Todo
+- Confirmation dialog before deletion
+- Automatic pagination adjustment
+
+### Pagination
+- 6 todos per page
+- Page navigation controls
+- Smart page number display
+
+### Filtering
+- Filter by status
+- Instant results
+- Maintains pagination
+
+## Database
+
+Currently uses an in-memory database for simplicity.
+
+For production, replace with:
+- MongoDB using Mongoose
+- PostgreSQL with Prisma
+- Firebase Firestore
+
+## Customization
+
+Change items per page in app/page.js:
+
+    limit: '6'  // Change this value
+
+Add new status options in lib/db.js and components.
+
+## License
+
+MIT
+
+---
+
+Built for MERN Technical Assignment

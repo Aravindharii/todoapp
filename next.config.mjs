@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
-};
+turbopack: {
+    root: "./", // Force correct root directory
+  },};
 
 export default nextConfig;
