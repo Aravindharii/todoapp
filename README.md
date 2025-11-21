@@ -70,7 +70,7 @@ Open your browser and navigate to:
 ## Features in Detail
 
 ### Create Todo
-- Add todos with title (required) and description (optional)
+- Add todos with title and description
 - Automatic status set to "Pending"
 - Form validation
 
@@ -95,12 +95,10 @@ Open your browser and navigate to:
 
 ## Database
 
-Currently uses an in-memory database for simplicity.
 
-For production, replace with:
+
 - MongoDB using Mongoose
-- PostgreSQL with Prisma
-- Firebase Firestore
+
 
 ## Customization
 
